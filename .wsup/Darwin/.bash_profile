@@ -1,6 +1,6 @@
 # -*- shell-script -*-
 #
-# dcreemer mac os x .bash_profile
+# deepumukundan mac os x .bash_profile
 #
 
 # If not running interactively, don't do anything
@@ -35,23 +35,6 @@ alias t='tree -aCF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias ec='emacsclient'
-alias ff='emacsclient -n'
-
-# gpg
-envfile="$HOME/.gnupg/gpg-agent.env"
-if [[ -e "$envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
-    eval "$(cat "$envfile")"
-else
-    eval "$(gpg-agent --daemon --write-env-file "$envfile")"
-fi
-export GPG_AGENT_INFO
-
-# virtualenv
-if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    source "/usr/local/bin/virtualenvwrapper.sh"
-fi
 
 # jenv
 if [ -d "${HOME}/.jenv/shims" ]; then
@@ -74,9 +57,6 @@ if [ -d "${HOME}/.jenv/shims" ]; then
       esac
     }
 fi
-
-# speed up lein trampoline
-export LEIN_FAST_TRAMPOLINE=y
 
 # bash completion via homebrew
 if [ -f `brew --prefix`/etc/bash_completion ]; then

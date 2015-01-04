@@ -7,5 +7,5 @@ set -o nounset
 OS=`uname -s`
 
 if [[ "$OS" == "Darwin" ]]; then
-    echo "nothing to do!"
+    echo "~~~~~~~ Nothing to do post install! ~~~~~~~~"
 fi
