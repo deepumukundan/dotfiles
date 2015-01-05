@@ -6,6 +6,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Load the default .profile
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
+
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
 case "$TERM" in
@@ -15,7 +18,7 @@ case "$TERM" in
 esac
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[01;32m\]\u \d \t\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='\u@\h:\w\$ '
 fi
@@ -36,28 +39,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# jenv
-if [ -d "${HOME}/.jenv/shims" ]; then
-    export PATH="${HOME}/.jenv/shims:${PATH}"
-    jenv rehash 2>/dev/null
-    export JENV_LOADED=1
-    unset JAVA_HOME
-    jenv() {
-      typeset command
-      command="$1"
-      if [ "$#" -gt 0 ]; then
-          shift
-      fi
-
-      case "$command" in
-          enable-plugin|rehash|shell|shell-options)
-            eval `jenv "sh-$command" "$@"`;;
-          *)
-            command jenv "$command" "$@";;
-      esac
-    }
-fi
-
 # bash completion via homebrew
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
@@ -72,3 +53,13 @@ fi
 if [ -f $HOME/.bash_work ]; then
     source $HOME/.bash_work
 fi
+
+
+# Personal Preferences - Deepu
+# ----------------------------
+set GIT_EDITOR = nano
+
+
+# RVM
+# ----------------------------
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
