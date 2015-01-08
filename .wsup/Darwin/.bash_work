@@ -1,0 +1,14 @@
+#! /bin/bash
+# .bash_work for Darwin
+
+# Work related alias
+alias wd='cd /Users/dmukundan/Documents/Workspace'
+
+# App environments
+export ORACLE_HOME=/Users/dmukundan/oracle/instantclient_11_2/
+export TNS_ADMIN=/Users/dmukundan/oracle/instantclient_11_2/
+export LD_LIBRARY_PATH=/Users/dmukundan/oracle/instantclient_11_2/
+export DYLD_LIBRARY_PATH=/Users/dmukundan/oracle/instantclient_11_2/
+export SQLPATH=$ORACLE_HOME
+export PATH=$PATH:$ORACLE_HOME
+
