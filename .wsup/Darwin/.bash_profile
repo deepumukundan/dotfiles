@@ -13,12 +13,12 @@
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Set aliases for frequently used commands
-alias c     = 'clear'
-alias ls    = 'ls -GF'
-alias t     = 'tree -aCF'
-alias grep  = 'grep --color=auto'
-alias fgrep = 'fgrep --color=auto'
-alias egrep = 'egrep --color=auto'
+alias c='clear'
+alias ls='ls -GF'
+alias t='tree -aCF'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # Terminal colors
 case "$TERM" in
