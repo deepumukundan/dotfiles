@@ -9,8 +9,18 @@
 # Load the default .profile
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 
+# Set path
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
+# Set aliases for frequently used commands
+alias c     = 'clear'
+alias ls    = 'ls -GF'
+alias t     = 'tree -aCF'
+alias grep  = 'grep --color=auto'
+alias fgrep = 'fgrep --color=auto'
+alias egrep = 'egrep --color=auto'
+
+# Terminal colors
 case "$TERM" in
     xterm*) color_prompt=yes;;
     eterm-color*) color_prompt=yes;;
@@ -33,33 +43,20 @@ case "$TERM" in
       ;;
 esac
 
-alias ls='ls -GF'
-alias t='tree -aCF'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
 # bash completion via homebrew
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
-# private settings
+# Load private settings
 if [ -f $HOME/.bash_private ]; then
     source $HOME/.bash_private
 fi
 
-# work specific settings
+# Load work specific settings
 if [ -f $HOME/.bash_work ]; then
     source $HOME/.bash_work
 fi
 
-
-# Personal Preferences - Deepu
-# ----------------------------
-set GIT_EDITOR = nano
-
-
-# RVM
-# ----------------------------
+# RVM settings
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
