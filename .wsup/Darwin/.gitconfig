@@ -3,7 +3,13 @@
 	email = deepumukundan@gmail.com
 [core]
 	editor = nano
-	excludesfile = /Users/deepu/.gitignore_global
+	excludesfile = ~/.gitignore_global
+[alias]
+st = status
+co = checkout
+br = branch
+up = rebase
+ci = commit
 [filter "media"]
 	required = true
 	clean = git media clean %f
