@@ -1,6 +1,5 @@
 # global git ignore file
-*.elc
+syntax: glob
 *.pyc
 *~
 .DS_Store
-.java-version

@@ -1,9 +1,9 @@
 [user]
 	name = Deepu Mukundan
-	email = deepumukundan@gmail.com
+	email = dmukundan@hotwire.com
 [core]
 	editor = nano
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/dmukundan/.gitignore_global
 [alias]
 st = status
 co = checkout
