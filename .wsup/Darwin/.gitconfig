@@ -1,9 +1,10 @@
 [user]
 	name = Deepu Mukundan
-	email = dmukundan@hotwire.com
+	email = deepumukundan@gmail.com
 [core]
 	editor = nano
-	excludesfile = /Users/dmukundan/.gitignore_global
+	excludesfile = /Users/deepu/.gitignore_global
+	ignorecase = false
 [alias]
 st = status
 co = checkout
@@ -22,3 +23,4 @@ ci = commit
 	trustExitCode = true
 [push]
 	default = simple
+
