@@ -3,7 +3,7 @@
 	email = deepumukundan@gmail.com
 [core]
 	editor = nano
-	excludesfile = /Users/deepu/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	ignorecase = false
 [alias]
 st = status

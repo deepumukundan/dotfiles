@@ -7,7 +7,6 @@ alias wd='cd /Users/dmukundan/Documents/Workspace'
 # App environments
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 export ORACLE_HOME=/opt/oracle/instantclient
-export DYLD_LIBRARY_PATH=$ORACLE_HOME
 export TNS_ADMIN=$ORACLE_HOME
 export LD_LIBRARY_PATH=$ORACLE_HOME
 

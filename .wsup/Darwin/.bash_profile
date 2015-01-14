@@ -51,12 +51,12 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 # Load private settings
-if [ -f $HOME/.bash_private ]; then
+if [ -f $HOME/.bash_private ] && [ $USER = "deepumukundan" ]; then
     source $HOME/.bash_private
 fi
 
 # Load work specific settings
-if [ -f $HOME/.bash_work ]; then
+if [ -f $HOME/.bash_work ] && [ $USER = "dmukundan" ]; then
     source $HOME/.bash_work
 fi
 

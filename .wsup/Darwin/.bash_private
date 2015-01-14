@@ -1,0 +1,5 @@
+#! /bin/bash
+# .bash_work for Darwin
+
+# Personal mac aliases
+alias wd='cd ~/Documents'
