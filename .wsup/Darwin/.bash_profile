@@ -22,6 +22,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# Functions
+1p () { 1pass --fuzzy "$1" | pbcopy; }
+
 # Terminal colors
 case "$TERM" in
     xterm*) color_prompt=yes;;
@@ -65,3 +68,6 @@ fi
 
 # Brew cask settings - Symlink to /Applications directory by default
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# 1pass settings
+export ONEPASSWORD_KEYCHAIN=~/Dropbox/1Password/1Password.agilekeychain
