@@ -10,7 +10,7 @@
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 
 # Set path
-export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$PATH:~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Set aliases for frequently used commands
 alias c='clear'

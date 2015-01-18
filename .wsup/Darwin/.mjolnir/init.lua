@@ -2,40 +2,28 @@
 
 -- Load Extensions
 local application = require "mjolnir.application"
-local window = require "mjolnir.window"
 local hotkey = require "mjolnir.hotkey"
-local keycodes = require "mjolnir.keycodes"
-local fnutils = require "mjolnir.fnutils"
-local alert = require "mjolnir.alert"
 local screen = require "mjolnir.screen"
+local fnutils = require "mjolnir.fnutils"
+local keycodes = require "mjolnir.keycodes"
+local alert = require "mjolnir.alert"
+local window = require "mjolnir.window"
 
 -- User packages
 local grid = require "mjolnir.bg.grid"
-local spotify = require "mjolnir.lb.spotify"
 local hints = require "mjolnir.th.hints"
 local appfinder = require "mjolnir.cmsj.appfinder"
+local cursor = require "mjolnir.jstevenson.cursor"
 
 ----------------------------------- Variables ------------------------------------
 
 local definitions = nil
 local hyper = nil
 hyper = {"cmd", "alt", "ctrl","shift"}
+auxWin = nil
+local hotkeys = {}
 
------------------------------------- Methods -------------------------------------
--- Window Hints
-
-hotkey.bind({"cmd"},"e",hints.windowHints)
--- You can also use this with appfinder to switch to windows of a specific app
-local appfinder = require "mjolnir.cmsj.appfinder"
-hotkey.bind({"ctrl","cmd"},"k",function() hints.appHints(appfinder.app_from_name("Emacs")) end)
-
-hotkey.bind(hyper, "D", function()
-  local win = window.focusedwindow()
-  local f = win:frame()
-  f.x = f.x + 10
-  win:setframe(f)
-end)
-----------------------------------------------------------------------------------
+------------------------------------ Utility -------------------------------------
 
 local gridset = function(frame)
 	return function()
@@ -48,18 +36,16 @@ local gridset = function(frame)
 	end
 end
 
-auxWin = nil
 function saveFocus()
   auxWin = window.focusedwindow()
   alert.show("Window '" .. auxWin:title() .. "' saved.")
 end
+
 function focusSaved()
   if auxWin then
     auxWin:focus()
   end
 end
-
-local hotkeys = {}
 
 function createHotkeys()
   for key, fun in pairs(definitions) do
@@ -102,13 +88,22 @@ function applyLayout(layout)
   end
 end
 
+function cursorMiddle()
+	local x = screen.mainscreen():fullframe().w
+	local y = screen.mainscreen():fullframe().h
+	cursor.warptopoint(x/2, y/2)
+end
+
 function init()
   createHotkeys()
   keycodes.inputsourcechanged(rebindHotkeys)
   alert.show("Mjolnir, at your service.")
 end
 
--- Actual config =================================
+----------------------- Actual Config Methods --------------------------
+
+-- Window Hints
+hotkey.bind({"cmd"},"e",hints.windowHints)
 
 -- Set grid size.
 grid.GRIDWIDTH  = 6
@@ -123,47 +118,55 @@ local goleft = {x = 0, y = 0, w = gw/2, h = gh}
 local goright = {x = gw/2, y = 0, w = gw/2, h = gh}
 local gobig = {x = 0, y = 0, w = gw, h = gh}
 
-local fullApps = {
-  "Safari","Aurora","Nightly","Xcode","Qt Creator","Google Chrome",
-  "Google Chrome Canary", "Eclipse", "Coda 2", "iTunes", "Emacs", "Firefox"
+local layout1 = {
+  iTerm = {1, gobig},
+  ["Microsoft Outlook"] = {1, gobig},
+  ["Google Chrome"] = {1, gobig},
+  TextWrangler = {1, gobig},
+  Spotify = {1, gobig},
+  SourceTree = {1, gobig},
+  HipChat = {1, gobig},
 }
 local layout2 = {
-  Airmail = {1, gomiddle},
-  Spotify = {1, gomiddle},
-  Calendar = {1, gomiddle},
-  Dash = {1, gomiddle},
-  iTerm = {2, goright},
-  MacRanger = {2, goleft},
+  iTerm = {1, goleft},
+  ["Microsoft Outlook"] = {1, goright},
+  ["Google Chrome"] = {2, gobig},
+  TextWrangler = {2, gobig},
+  Spotify = {3, gomiddle},
+  SourceTree = {3, gomiddle},
+  HipChat = {3, gomiddle},
 }
-fnutils.each(fullApps, function(app) layout2[app] = {1, gobig} end)
+local fullApps = {
+  "Safari","Xcode","Google Chrome","TextWrangler"
+}
+fnutils.each(fullApps, function(app) layout1[app] = {1, gobig} end)
 
 definitions = {
   [";"] = saveFocus,
   a = focusSaved,
 
-  h = gridset(gomiddle),
-  t = gridset(goleft),
-  n = grid.maximize_window,
-  s = gridset(goright),
-
-  g = applyLayout(layout2),
+  ["1"] = grid.maximize_window,
+  ["2"] = gridset(goleft),
+  ["3"] = gridset(goright),
+  ["4"] = gridset(gomiddle),
+  m = cursorMiddle,
+  
+  o = applyLayout(layout1),
+  p = applyLayout(layout2),
 
   d = grid.pushwindow_nextscreen,
   r = mjolnir.reload,
-  q = function() appfinder.app_from_name("Mjolnir"):kill() end,
-
-  k = function() hints.appHints(appfinder.app_from_name("Emacs")) end,
-  j = function() hints.appHints(window.focusedwindow():application()) end,
+--  q = function() appfinder.app_from_name("Mjolnir"):kill() end,
+--  k = function() hints.appHints(appfinder.app_from_name("Emacs")) end,
+--  j = function() hints.appHints(window.focusedwindow():application()) end,
   ec = hints.windowHints
 }
 
 -- launch and focus applications
 fnutils.each({
-  { key = "o", app = "MacRanger" },
-  { key = "e", app = "Google Chrome" },
-  { key = "u", app = "Emacs" },
+  { key = "g", app = "Google Chrome" },
   { key = "i", app = "iTerm" },
-  { key = "m", app = "Airmail" }
+  { key = "x", app = "Xcode-Beta" },
 }, function(object)
     definitions[object.key] = function() application.launchorfocus(object.app) end
 end)
