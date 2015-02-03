@@ -124,16 +124,18 @@ function reloadConfig()
     hs.reload()
 end
 
--- Move the cursor to middle of screen
+-- Move the cursor to middle of focused application
 function cursorToMiddle()
   	local win = hs.window.focusedWindow()
+  	local focusedFrame = win:frame()
   	local screen = win:screen()
-  	local max = screen:frame()
-
-  	local c = hs.mouse.get()
-	c.x = max.w/2
-	c.y = max.h/2
-	hs.mouse.set(c) -- TODO - Fix this to get to active applications screen
+  	local screenFrame = screen:frame()
+	
+  	local c = hs.mouse.getAbsolutePosition()
+	c.x = focusedFrame.w/2 + (focusedFrame.x - screenFrame.x)
+	c.y = focusedFrame.h/2 + (focusedFrame.y - screenFrame.y)
+		
+	hs.mouse.setRelativePosition(c, screen)
 end
 
 ----------------------------- Actual Config Methods ------------------------------
@@ -165,7 +167,7 @@ hs.hotkey.bind(hyper, 'm', cursorToMiddle)
 hs.hotkey.bind(cmd,   'e', hs.hints.windowHints)
 
 -- Create and start our callbacks
-configFileWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig)
+configFileWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.wsup/dotfiles/.wsup/Darwin/.hammerspoon/", reloadConfig)
 configFileWatcher:start()
 
 appWatcher = hs.application.watcher.new(applicationWatcher)
