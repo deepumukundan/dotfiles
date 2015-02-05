@@ -18,53 +18,24 @@ function returnLast()
 	end
 end
 
-function nudgeRight()
-   local win = hs.window.focusedWindow()
-   local f = win:frame()
-   saved.win = win
-   saved.winframe = saved.win:frame()
-   f.x = f.x + 10
-   win:setFrame(f)
-end
-
-function nudgeLeft()
-   local win = hs.window.focusedWindow()
-   local f = win:frame()
-   saved.win = win
-   saved.winframe = saved.win:frame()
-   f.x = f.x - 10
-   win:setFrame(f)
-end
-
-function nudgeUp()
-   local win = hs.window.focusedWindow()
-   local f = win:frame()
-   saved.win = win
-   saved.winframe = saved.win:frame()
-   f.y = f.y - 10
-   win:setFrame(f)
-end
-
-function nudgeDown()
-   local win = hs.window.focusedWindow()
-   local f = win:frame()
-   saved.win = win
-   saved.winframe = saved.win:frame()
-   f.y = f.y + 10
-   win:setFrame(f)
-end
-
 function leftThirds()
    saved.win = hs.window.focusedWindow()
    saved.winframe = saved.win:frame()
-	hs.grid.set(saved.win, {x = 0, y = 0, w = 1, h = 3}, hs.screen.mainScreen())
+   hs.grid.set(saved.win, {x = 0, y = 0, w = 1, h = 3}, hs.screen.mainScreen())
 end
 
 function rightThirds()
    saved.win = hs.window.focusedWindow()
    saved.winframe = saved.win:frame()
-	hs.grid.set(hs.window.focusedWindow(), {x = 1, y = 0, w = 2, h = 3}, hs.screen.mainScreen())
+   hs.grid.set(hs.window.focusedWindow(), {x = 1, y = 0, w = 2, h = 3}, hs.screen.mainScreen())
 end
+
+function moveWindow()
+   saved.win = hs.window.focusedWindow()
+   saved.winframe = saved.win:frame()
+   saved.win:moveToScreen(hs.screen.allScreens()[1])
+end
+
 
 --
 -- Function:         snapWindow

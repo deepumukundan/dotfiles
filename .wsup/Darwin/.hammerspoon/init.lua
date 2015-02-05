@@ -38,7 +38,7 @@ local lastNumberOfScreens = #hs.screen.allScreens()
 local internal_display = {
     {"iTerm",             nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Microsoft Outlook", nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Google Chrome",     nil,          display_laptop, hs.layout.left30,    nil, nil},
+    {"Google Chrome",     nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"TextWrangler",      nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Xcode",             nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Atom",              nil,          display_laptop, hs.layout.maximized, nil, nil},
@@ -48,6 +48,7 @@ local internal_display = {
     {"Evernote",          nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Spotify",           nil,          display_laptop, hs.layout.maximized, nil, nil},    
     {"iTunes",            "iTunes",     display_laptop, hs.layout.maximized, nil, nil},
+    {"iTunes",            "MiniPlayer", display_laptop, nil,                 nil, hs.geometry.rect(575, -45, 215, 45)},
     {"Finder",            nil,          display_laptop, hs.layout.maximized, nil, nil},
 }
 
@@ -64,7 +65,8 @@ local triple_display = {
     {"Evernote",          nil,          display_laptop,  hs.layout.maximized, nil, nil},
     {"Spotify",           nil,          display_laptop,  hs.layout.maximized, nil, nil},    
     {"iTunes",            "iTunes",     display_laptop,  hs.layout.maximized, nil, nil},
-    {"Finder",            nil,          display_laptop, hs.layout.left50,    nil, nil},
+    {"iTunes",            "MiniPlayer", display_laptop,  nil,                 nil, hs.geometry.rect(575, -45, 215, 45)},
+    {"Finder",            nil,          display_laptop,  hs.layout.left50,    nil, nil},
 }
 
 -------------------------------- Utility Methods ---------------------------------
@@ -138,6 +140,13 @@ function cursorToMiddle()
 	hs.mouse.setRelativePosition(c, screen)
 end
 
+function fullScreenWindows()
+	for win in hs.window.visibleWindows() do
+		hs.alert(win)
+	end 
+	--hs.window:ensureIsInScreenBounds())
+end
+
 ----------------------------- Actual Config Methods ------------------------------
 -- Hotkeys to resize windows absolutely
 hs.hotkey.bind(hyper, '[', function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
@@ -148,6 +157,7 @@ hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest(
 hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
 hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth() end)
 hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth() end)
+hs.hotkey.bind(hyper, '0', function() windowConfigs.moveWindow() end)
 
 -- Hotkeys to trigger defined layouts
 hs.hotkey.bind(hyper, '1', function() hs.layout.apply(internal_display) end)
@@ -165,6 +175,7 @@ hs.hotkey.bind(hyper, 'y', hs.toggleConsole)
 hs.hotkey.bind(hyper, 'n', function() os.execute("open ~") end)
 hs.hotkey.bind(hyper, 'm', cursorToMiddle)
 hs.hotkey.bind(cmd,   'e', hs.hints.windowHints)
+-- hs.hotkey.bind(hyper, '0', fullScreenWindows)
 
 -- Create and start our callbacks
 configFileWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.wsup/dotfiles/.wsup/Darwin/.hammerspoon/", reloadConfig)
