@@ -1,4 +1,3 @@
-# -*- shell-script -*-
 #
 # deepumukundan mac os x .bash_profile
 #
@@ -15,43 +14,18 @@ export PATH=$PATH:~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/
 # Set aliases for frequently used commands
 alias c='clear'
 alias ls='ls -GF'
-alias tw='open -a TextWrangler '
-alias y='open -a Yoink '
+alias tw='open -a TextWrangler'
+alias a='open -a Atom'
+alias y='open -a Yoink'
 alias t='tree -aCF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # Functions
-1p () { 1pass --fuzzy "$1" | pbcopy; }
-
-# Terminal colors
-case "$TERM" in
-    xterm*) color_prompt=yes;;
-    eterm-color*) color_prompt=yes;;
-    *) ;;
-esac
-
-if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]\u \d \t \!\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='\u@\h:\w\$ '
-fi
-unset color_prompt
-
-# when in a terminal window, change the title bar:
-case "$TERM" in
-    xterm*|rxvt*)
-      PS1="\[\e]0;\u@\h: \w\a\]$PS1"
-      ;;
-    *)
-      ;;
-esac
-
-# bash completion via homebrew
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
+function 1p() { 1pass --fuzzy "$1" | pbcopy; }
+function f()  { find . -iname "*$1*" ${@:2} }
+function r()  { grep "$1" ${@:2} -R . }
 
 # Load private settings
 if [ -f $HOME/.bash_private ] && [ $USER = "deepumukundan" ]; then

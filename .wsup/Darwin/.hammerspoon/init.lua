@@ -175,7 +175,6 @@ hs.hotkey.bind(hyper, 'y', hs.toggleConsole)
 hs.hotkey.bind(hyper, 'n', function() os.execute("open ~") end)
 hs.hotkey.bind(hyper, 'm', cursorToMiddle)
 hs.hotkey.bind(cmd,   'e', hs.hints.windowHints)
--- hs.hotkey.bind(hyper, '0', fullScreenWindows)
 
 -- Create and start our callbacks
 configFileWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.wsup/dotfiles/.wsup/Darwin/.hammerspoon/", reloadConfig)
