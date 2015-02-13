@@ -4,9 +4,14 @@
 
 brew update && brew upgrade && brew cleanup && brew prune
 brew upgrade brew-cask && brew cask cleanup
-sudo npm update -g
-gem update
-gem update --system
-rvm get stable
-
 brew outdated
+
+gem update --system && gem update && gem clean
+rvm get stable
+rvm cleanup all
+rvmGemsetsCleanup
+
+sudo npm update -g
+
+# Custom cleaners
+rebuildFinderOpenWith

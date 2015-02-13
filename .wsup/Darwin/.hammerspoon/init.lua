@@ -37,6 +37,7 @@ local lastNumberOfScreens = #hs.screen.allScreens()
 
 local internal_display = {
     {"iTerm",             nil,          display_laptop, hs.layout.maximized, nil, nil},
+    {"Mail", 			  nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Microsoft Outlook", nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Google Chrome",     nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"TextWrangler",      nil,          display_laptop, hs.layout.maximized, nil, nil},
@@ -54,6 +55,7 @@ local internal_display = {
 
 local triple_display = {
     {"iTerm",             nil,          display_left,    hs.layout.left50,    nil, nil},
+    {"Mail", 			  nil,          display_left,    hs.layout.right50,   nil, nil},
     {"Microsoft Outlook", nil,          display_left,    hs.layout.right50,   nil, nil},
     {"Google Chrome",     nil,          display_middle,  hs.layout.maximized, nil, nil},
     {"TextWrangler",      nil,          display_middle,  hs.layout.maximized, nil, nil},
