@@ -23,6 +23,7 @@ alias egrep='egrep --color=auto'
 function 1p() { 1pass --fuzzy "$1" | pbcopy; }
 function f()  { find . -iname "*$1*" ${@:2} }
 function r()  { grep "$1" ${@:2} -R . }
+function rule() { printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}}
 
 # Load private settings
 if [ -f $HOME/.bash_private ] && [ $USER = "deepumukundan" ]; then
