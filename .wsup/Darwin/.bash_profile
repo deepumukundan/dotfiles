@@ -18,6 +18,7 @@ alias t='tree -aCF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias right="printf '%*s' $(tput cols)"
 
 # Functions
 function 1p() { 1pass --fuzzy "$1" | pbcopy; }

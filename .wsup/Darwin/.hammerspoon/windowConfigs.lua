@@ -18,6 +18,42 @@ function returnLast()
 	end
 end
 
+function nudgeRight()
+   local win = hs.window.focusedWindow()
+   local f = win:frame()
+   saved.win = win
+   saved.winframe = saved.win:frame()
+   f.x = f.x + 20
+   win:setFrame(f)
+end
+
+function nudgeLeft()
+   local win = hs.window.focusedWindow()
+   local f = win:frame()
+   saved.win = win
+   saved.winframe = saved.win:frame()
+   f.x = f.x - 20
+   win:setFrame(f)
+end
+
+function nudgeUp()
+   local win = hs.window.focusedWindow()
+   local f = win:frame()
+   saved.win = win
+   saved.winframe = saved.win:frame()
+   f.y = f.y - 20
+   win:setFrame(f)
+end
+
+function nudgeDown()
+   local win = hs.window.focusedWindow()
+   local f = win:frame()
+   saved.win = win
+   saved.winframe = saved.win:frame()
+   f.y = f.y + 20
+   win:setFrame(f)
+end
+
 function leftThirds()
    saved.win = hs.window.focusedWindow()
    saved.winframe = saved.win:frame()
@@ -36,6 +72,18 @@ function moveWindow()
    saved.win:moveToScreen(hs.screen.allScreens()[1])
 end
 
+function cafftoggle ()
+	hs.caffeinate.toggle("system")
+	if hs.caffeinate.get("system") then
+		hs.caffeinate.set("displayIdle", true, true)
+		hs.caffeinate.set("systemIdle", true, true)
+		hs.alert.show("Caff is enabled!", 3)
+	else
+		hs.caffeinate.set("displayIdle", false, true)
+		hs.caffeinate.set("systemIdle", false, true)
+		hs.alert.show("Caff is disabled!", 3)
+	end
+end
 
 --
 -- Function:         snapWindow
