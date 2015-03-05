@@ -36,9 +36,9 @@ local lastNumberOfScreens = #hs.screen.allScreens()
 --     {"App name", "Window name", "Display Name", "unitrect", "framerect", "fullframerect"},
 
 local internal_display = {
-    {"iTerm",             nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Mail", 			  nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Microsoft Outlook", nil,          display_laptop, hs.layout.maximized, nil, nil},
+    {"iTerm",             nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Google Chrome",     nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"TextWrangler",      nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Xcode",             nil,          display_laptop, hs.layout.maximized, nil, nil},
@@ -54,9 +54,9 @@ local internal_display = {
 }
 
 local triple_display = {
-    {"iTerm",             nil,          display_left,    hs.layout.left50,    nil, nil},
-    {"Mail", 			  nil,          display_left,    hs.layout.right50,   nil, nil},
-    {"Microsoft Outlook", nil,          display_left,    hs.layout.right50,   nil, nil},
+    {"Mail", 			  nil,          display_left,    hs.layout.left50,    nil, nil},
+    {"Microsoft Outlook", nil,          display_left,    hs.layout.left50,    nil, nil},
+    {"iTerm",             nil,          display_left,    hs.layout.right50,   nil, nil},
     {"Google Chrome",     nil,          display_middle,  hs.layout.maximized, nil, nil},
     {"TextWrangler",      nil,          display_middle,  hs.layout.maximized, nil, nil},
     {"Xcode",             nil,          display_middle,  hs.layout.maximized, nil, nil},
@@ -92,6 +92,7 @@ end
 -- Callback function for application events
 function applicationWatcher(appName, eventType, appObject)
     if (eventType == hs.application.watcher.activated) then
+        cursorToMiddle()
         if (appName == "Finder") then
             -- Bring all Finder windows forward when one gets activated
             appObject:selectMenuItem({"Window", "Bring All to Front"})
