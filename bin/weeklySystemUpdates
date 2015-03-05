@@ -14,5 +14,5 @@ rvmGemsetsCleanup
 sudo npm update -g
 
 # Custom cleaners
-rebuildFinderOpenWith
-rebuildLaunchpadDB
+resetFinderOpenWith
+resetLaunchpadDB

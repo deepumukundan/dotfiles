@@ -1,0 +1,2 @@
+rm -Rvf ~/Library/Developer/Xcode/DerivedData
+Echo 'Derived data was eliminated'
