@@ -92,7 +92,9 @@ end
 -- Callback function for application events
 function applicationWatcher(appName, eventType, appObject)
     if (eventType == hs.application.watcher.activated) then
-        cursorToMiddle()
+        if(appName ~= nil) then
+        	cursorToMiddle()
+        end
         if (appName == "Finder") then
             -- Bring all Finder windows forward when one gets activated
             appObject:selectMenuItem({"Window", "Bring All to Front"})
@@ -131,16 +133,18 @@ end
 
 -- Move the cursor to middle of focused application
 function cursorToMiddle()
-  	local win = hs.window.focusedWindow()
-  	local focusedFrame = win:frame()
-  	local screen = win:screen()
-  	local screenFrame = screen:frame()
+  	local win = hs.window.focusedWindow()  	
+  	if(win ~= nil) then
+		local focusedFrame = win:frame()
+		local screen = win:screen()
+		local screenFrame = screen:frame()
 	
-  	local c = hs.mouse.getAbsolutePosition()
-	c.x = focusedFrame.w/2 + (focusedFrame.x - screenFrame.x)
-	c.y = focusedFrame.h/2 + (focusedFrame.y - screenFrame.y)
+		local c = hs.mouse.getAbsolutePosition()
+		c.x = focusedFrame.w/2 + (focusedFrame.x - screenFrame.x)
+		c.y = focusedFrame.h/2 + (focusedFrame.y - screenFrame.y)
 		
-	hs.mouse.setRelativePosition(c, screen)
+		hs.mouse.setRelativePosition(c, screen)
+	end
 end
 
 function fullScreenWindows()
