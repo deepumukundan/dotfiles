@@ -1,0 +1,29 @@
+# Regex to validate URL's
+regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+
+# If no URL was passed in via command line, check the clipboard
+if [ $# -eq 0 ]
+  then
+    url=$(pbpaste)
+  else
+    url=$1
+fi
+
+# If the URL does not have http prefix, add it
+if [[ $url = http* ]]
+  then
+    echo "URl has http"
+  else
+    url="http://"$url
+fi
+
+echo $url
+
+# Make sure it is a valid URL and open on active simulator
+if [[ $url =~ $regex ]]
+  then
+    echo "Opening URL:" $url
+    xcrun simctl openurl $(xcrun simctl list | awk -F "[()]" '{ for (i=2; i<NF; i+=2) print $i }' | grep "Booted" -B 1 | grep '^[-A-Z0-9]*$') $url
+  else
+    echo "Could not detect valid URL in paramaters or clipboard!"
+fi
