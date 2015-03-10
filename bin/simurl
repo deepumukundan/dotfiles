@@ -12,18 +12,21 @@ fi
 # If the URL does not have http prefix, add it
 if [[ $url = http* ]]
   then
-    echo "URl has http"
+    echo ""
   else
     url="http://"$url
 fi
 
-echo $url
-
 # Make sure it is a valid URL and open on active simulator
 if [[ $url =~ $regex ]]
   then
-    echo "Opening URL:" $url
-    xcrun simctl openurl $(xcrun simctl list | awk -F "[()]" '{ for (i=2; i<NF; i+=2) print $i }' | grep "Booted" -B 1 | grep '^[-A-Z0-9]*$') $url
+    if [[ $(xcrun simctl list | grep "Booted" | wc -l) -gt 0 ]]
+      then
+          echo "Opening URL:" $url
+          xcrun simctl openurl $(xcrun simctl list | awk -F "[()]" '{ for (i=2; i<NF; i+=2) print $i }' | grep "Booted" -B 1 | grep '^[-A-Z0-9]*$') $url
+      else
+          echo "No simulator active. Please open an iOS Simulator and run simurl again!"
+    fi
   else
     echo "Could not detect valid URL in paramaters or clipboard!"
 fi
