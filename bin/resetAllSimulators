@@ -1,4 +1,4 @@
-# Kill the simulator first since simctl is not able to erase a running simulator, i believe
+# Kill the simulator first since simctl is not able to erase a running simulator
 killall "iOS Simulator"
 # List all simulators, parse the ID's, and erase them
 xcrun simctl list | awk -F "[()]" '{ for (i=2; i<NF; i+=2) print $i }' | grep '^[-A-Z0-9]*$' | xargs -I uuid xcrun simctl erase uuid

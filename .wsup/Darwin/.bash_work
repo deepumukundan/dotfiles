@@ -3,6 +3,7 @@
 
 # Work related alias
 alias wd='cd /Users/dmukundan/Documents/Workspace'
+function j() { ssh releaseengineering@172.17.19."$@" ;}
 
 # App environments
 # export NLS_LANG="AMERICAN_AMERICA.UTF8"

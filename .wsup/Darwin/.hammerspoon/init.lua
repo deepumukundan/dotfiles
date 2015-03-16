@@ -137,13 +137,15 @@ function cursorToMiddle()
   	if(win ~= nil) then
 		local focusedFrame = win:frame()
 		local screen = win:screen()
-		local screenFrame = screen:frame()
+		if(screen ~= nil) then	
+			local screenFrame = screen:frame()
 	
-		local c = hs.mouse.getAbsolutePosition()
-		c.x = focusedFrame.w/2 + (focusedFrame.x - screenFrame.x)
-		c.y = focusedFrame.h/2 + (focusedFrame.y - screenFrame.y)
+			local c = hs.mouse.getAbsolutePosition()
+			c.x = focusedFrame.w/2 + (focusedFrame.x - screenFrame.x)
+			c.y = focusedFrame.h/2 + (focusedFrame.y - screenFrame.y)
 		
-		hs.mouse.setRelativePosition(c, screen)
+			hs.mouse.setRelativePosition(c, screen)
+		end
 	end
 end
 
