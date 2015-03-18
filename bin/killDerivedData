@@ -1,2 +1,25 @@
-rm -Rvf ~/Library/Developer/Xcode/DerivedData
+ddclean() {
+    #Save the starting dir
+    startingDir=$PWD
+
+    #Go to the derivedData location
+    cd $1
+
+    #Sometimes, few file remains, so loop until no files remain
+    numRemainingFiles=1
+    while [ $numRemainingFiles -gt 0 ]; do
+        #Delete the files, recursively
+        rm -rvf *
+
+        #Update file count
+        numRemainingFiles=`ls | wc -l`
+    done
+
+    #Go back to starting dir
+    cd $startingDir
+}
+
+ddclean ~/Library/Developer/Xcode/DerivedData
+ddclean /var/folders
+
 Echo 'Derived data was eliminated!'
