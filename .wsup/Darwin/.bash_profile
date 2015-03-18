@@ -25,6 +25,10 @@ function 1p() { 1pass --fuzzy "$1" | pbcopy; }
 function f()  { find . -iname "*$1*" ${@:2} }
 function r()  { grep "$1" ${@:2} -R . }
 function rule() { printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}}
+function hpick() { $(history | cut -c8- | sort -u | pick) }
+function gpick() { git checkout $(git branch | pick) }
+function dpick() { cd $(find . -type d | pick) }
+function kpick() { kill $(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | pick -do | tail -n +2) }
 
 # Load private settings
 if [ -f $HOME/.bash_private ] && [ $USER = "deepumukundan" ]; then

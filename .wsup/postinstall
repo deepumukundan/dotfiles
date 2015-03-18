@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 #
 # postinstall script
-
 set -o nounset
 
-OS=`uname -s`
-
-if [[ "$OS" == "Darwin" ]]; then
-    echo "~~~~~~~ Nothing to do post install! ~~~~~~~~"
-fi
+# Install additional tools not covered by default set
+brew tap thoughtbot/formulae
+brew install pick
