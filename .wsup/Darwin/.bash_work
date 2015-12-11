@@ -3,7 +3,7 @@
 
 # Work related alias
 alias wd='cd /Users/dmukundan/Documents/Workspace'
-alias hw='cd /Users/dmukundan/Documents/Workspace/Hotwire\ Projects/Hotwire/main'
+alias hw='cd /Users/dmukundan/Documents/Workspace/Hotwire/Hotwire/main'
 function j() { ssh releaseengineering@172.17.19."$@" ;}
 
 # App environments
