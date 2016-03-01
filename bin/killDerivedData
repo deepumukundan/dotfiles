@@ -1,3 +1,5 @@
+rm -rvf "$(getconf DARWIN_USER_CACHE_DIR)/org.llvm.clang/ModuleCache"
 rm -rvf ~/Library/Developer/Xcode/DerivedData
+rm -rvf ~/Library/Caches/com.apple.dt.Xcode
 
 Echo 'Derived data was eliminated!'
