@@ -32,4 +32,5 @@
 	required = true
 [branch]
 	autoSetupRebase = remote
-
+[http]
+	sslVerify = true
