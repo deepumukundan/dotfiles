@@ -8,6 +8,7 @@ brew outdated
 
 gem update --system && gem update && gem clean
 rvm get stable
+gem cleanup
 rvm cleanup all
 rvmGemsetsCleanup
 
