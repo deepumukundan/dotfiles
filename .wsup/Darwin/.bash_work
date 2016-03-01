@@ -17,5 +17,3 @@ function j() { ssh releaseengineering@172.17.19."$@" ;}
 
 export M2_HOME=/Applications/apache-maven-3.3.3
 export PATH=$PATH:$M2_HOME/bin
-
-export PATH="$PATH:/Applications/infer-osx-v0.1.0/infer/infer/bin"
