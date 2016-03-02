@@ -6,7 +6,7 @@
 [ -z "$PS1" ] && return
 
 # Set path
-export PATH=$PATH:~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 # Set aliases for frequently used commands
 alias c='clear'
