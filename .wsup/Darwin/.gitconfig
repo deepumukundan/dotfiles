@@ -34,3 +34,5 @@
 	autoSetupRebase = remote
 [http]
 	sslVerify = true
+[fetch]
+	prune = true
