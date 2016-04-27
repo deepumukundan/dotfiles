@@ -5,15 +5,3 @@
 alias wd='cd /Users/dmukundan/Documents/Workspace'
 alias hw='cd /Users/dmukundan/Documents/Workspace/Hotwire/Hotwire/main'
 function j() { ssh releaseengineering@172.17.19."$@" ;}
-
-# App environments
-# export NLS_LANG="AMERICAN_AMERICA.UTF8"
-# export ORACLE_HOME=/opt/oracle/instantclient
-# export TNS_ADMIN=$ORACLE_HOME
-# export LD_LIBRARY_PATH=$ORACLE_HOME
-
-# export SQLPATH=$ORACLE_HOME
-# export PATH=$PATH:$ORACLE_HOME
-
-export M2_HOME=/Applications/apache-maven-3.3.3
-export PATH=$PATH:$M2_HOME/bin
