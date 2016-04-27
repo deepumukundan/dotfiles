@@ -1,4 +1,4 @@
 command script import /usr/local/opt/chisel/libexec/fblldb.py
-command alias uikit expr @import UIKit
-command alias foundation expr @import Foundation
+# command alias uikit expr @import UIKit
+# command alias foundation expr @import Foundation
 target stop-hook add -o "target stop-hook disable"
