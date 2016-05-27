@@ -32,6 +32,7 @@ function dpick() { cd $(find . -type d | pick) }
 function kpick() { kill $(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | pick -do | tail -n +2) }
 function loc() { find . -type f -iname "*.[hm]" -exec wc -l {} \; | awk '{total += $1} END{print total}' }
 function locs() { find . -type f -iname "*.swift" -exec wc -l {} \; | awk '{total += $1} END{print total}' }
+source ~/bin/shorten
 
 # Load private settings
 if [ -f $HOME/.bash_private ] && [ $USER = "deepumukundan" ]; then
