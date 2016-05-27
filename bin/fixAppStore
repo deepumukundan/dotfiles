@@ -1,0 +1,4 @@
+function fixAppStore() {
+    sudo killall storeaccountd storeassetd storedownloadd storeinappd
+    sudo rm -rf $HOME/Library/Caches/{storeaccountd,storeassetd,storedownloadd,storeinappd}
+}
