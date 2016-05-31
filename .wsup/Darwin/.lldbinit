@@ -1,4 +1,10 @@
+# Load Facebook Chisel
 command script import /usr/local/opt/chisel/libexec/fblldb.py
+
+# Now deprecated since Xcode 7.3. Consider removing soon
 # command alias uikit expr @import UIKit
 # command alias foundation expr @import Foundation
-target stop-hook add -o "target stop-hook disable"
+# target stop-hook add -o "target stop-hook disable"
+
+# Increase debugger print output from default (300) 
+set set target.max-string-summary-length 50000
