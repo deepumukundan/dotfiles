@@ -1,0 +1,4 @@
+# If Plugins Backup exist, Kills Xcode & Copies Xcode Backup folder back to Plug-ins
+killall Xcode
+mv ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins_Backup ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins
+echo "✅   Xcode Plug-ins enabled"
