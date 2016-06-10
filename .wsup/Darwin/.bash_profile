@@ -13,6 +13,7 @@ alias c='clear'
 alias ls='ls -GF'
 alias tw='open -a TextWrangler'
 alias a='open -a Atom'
+alias h='history'
 alias y='open -a Yoink'
 alias t='tree -aCF'
 alias grep='grep --color=auto'
@@ -56,3 +57,6 @@ export ONEPASSWORD_KEYCHAIN=~/Dropbox/1Password/1Password.agilekeychain
 
 # Setup swift environment manager
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+# Setup swift toolchains in the path
+export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:${PATH}

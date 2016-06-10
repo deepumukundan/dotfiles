@@ -4,7 +4,7 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 # Display Project build duration in Xcode
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 
-# Use all available core's for build
+# Use all available core's for Xcode build
 defaults write com.apple.dt.Xcode IDEBuildOperationMaxNumberOfConcurrentCompileTasks `sysctl -n hw.ncpu`
 
 # Show Appstore Debug menu
