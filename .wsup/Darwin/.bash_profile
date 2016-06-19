@@ -46,9 +46,6 @@ if [ -f $HOME/.bash_work ] && [ $USER = "dmukundan" ]; then
     source $HOME/.bash_work
 fi
 
-# RVM settings
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # Brew cask settings - Symlink to /Applications directory by default
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -59,4 +56,8 @@ export ONEPASSWORD_KEYCHAIN=~/Dropbox/1Password/1Password.agilekeychain
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # Setup swift toolchains in the path
-export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:${PATH}
+export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
+
+# RVM settings
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
