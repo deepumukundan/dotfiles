@@ -1,0 +1,11 @@
+git rev-list --all --objects | \
+    sed -n $(git rev-list --objects --all | \
+    cut -f1 -d' ' | \
+    git cat-file --batch-check | \
+    grep blob | \
+    sort -n -k3nr | \
+    head -n50 | \
+    while read size type hash; do
+         echo -n "-e s/$size/$hash/p ";
+    done) | \
+    sort -nr
