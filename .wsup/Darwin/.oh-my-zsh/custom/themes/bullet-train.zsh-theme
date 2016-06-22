@@ -20,13 +20,13 @@ if [ ! -n "${BULLETTRAIN_PROMPT_ORDER+1}" ]; then
   BULLETTRAIN_PROMPT_ORDER=(
     time
     status
-    custom
+    # custom
     context
     dir
     # perl
     # ruby
-    virtualenv
-    nvm
+    # virtualenv
+    # nvm
     # go
     git
     # hg
@@ -174,7 +174,7 @@ if [ ! -n "${BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR+1}" ]; then
   BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 fi
 if [ ! -n "${BULLETTRAIN_GIT_BG+1}" ]; then
-  BULLETTRAIN_GIT_BG=white
+  BULLETTRAIN_GIT_BG=green
 fi
 if [ ! -n "${BULLETTRAIN_GIT_FG+1}" ]; then
   BULLETTRAIN_GIT_FG=black
