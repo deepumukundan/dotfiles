@@ -4,4 +4,9 @@
 # Work related alias
 alias wd='cd /Users/dmukundan/Documents/Workspace'
 alias hw='cd /Users/dmukundan/Documents/Workspace/Hotwire/Hotwire/main'
-function j() { ssh releaseengineering@172.17.19."$@" ;}
+alias hw0='cd /Users/dmukundan/Documents/Workspace/Hotwire/HotwireClone01/main'
+alias hw1='cd /Users/dmukundan/Documents/Workspace/Hotwire/HotwireWorkTree01/main'
+alias hw2='cd /Users/dmukundan/Documents/Workspace/Hotwire/HotwireWorkTree02/main'
+
+function j() { ssh releaseengineering@172.17.19."$@" }
+function p() { ssh pi@172.17.19."$@" }

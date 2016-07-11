@@ -21,6 +21,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias right="printf '%*s' $(tput cols)"
 alias dd='cd ~/Library/Developer/Xcode/DerivedData'
+alias gh='cd ~/Documents/Workspace/Github-Clones'
 
 # Functions
 function 1p() { 1pass --fuzzy "$1" | pbcopy; }
