@@ -1,5 +1,5 @@
 # Load Facebook Chisel
-command script import /usr/local/opt/chisel/libexec/fblldb.py
+command script import ~/Documents/Workspace/Github-Clones/chisel/fblldb.py
 
 # Now deprecated since Xcode 7.3. Consider removing soon
 # command alias uikit expr @import UIKit
