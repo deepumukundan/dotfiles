@@ -8,7 +8,6 @@ syntax: glob
 
 ### Objective-C ###
 # Xcode
-build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3

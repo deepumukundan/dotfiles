@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-#
-# update local installs
 
 brew update && brew upgrade && brew cleanup && brew prune
 brew upgrade brew-cask && brew cask cleanup
 brew outdated
 
 gem update --system && gem update && gem clean
-rvm get stable
 gem cleanup
 rvm cleanup all
+
+# Update RVM installation
+rvm get stable
 rvmGemsetsCleanup
 
 sudo npm update -g
@@ -17,3 +17,6 @@ sudo npm update -g
 # Custom cleaners
 resetFinderOpenWith
 resetLaunchpadDB
+
+# Get latest podspecs
+pod repo update

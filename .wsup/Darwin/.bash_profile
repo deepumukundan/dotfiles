@@ -37,6 +37,8 @@ function locs() { find . -type f -iname "*.swift" -exec wc -l {} \; | awk '{tota
 source ~/bin/shorten
 source ~/bin/fixAppStore
 
+source ~/.profile
+
 # Load private settings
 if [ -f $HOME/.bash_private ] && [ $USER = "deepumukundan" ]; then
     source $HOME/.bash_private
@@ -60,5 +62,5 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 
 # RVM settings
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

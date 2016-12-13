@@ -4,6 +4,12 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 # Display Project build duration in Xcode
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 
+# Disable Photos from opening whenever a new device is connected
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# Always expand save dialogue
+defaults write -g NSNavPanelExpandedStateForSaveMode -boolean true
+
 # Use all available core's for Xcode build
 defaults write com.apple.dt.Xcode IDEBuildOperationMaxNumberOfConcurrentCompileTasks `sysctl -n hw.ncpu`
 
