@@ -2,7 +2,10 @@
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Display Project build duration in Xcode
-defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
+
+# Log Xcode build commands reasoning
+defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
 
 # Disable Photos from opening whenever a new device is connected
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
