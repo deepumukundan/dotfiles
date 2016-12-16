@@ -1,0 +1,11 @@
+# Display Project build duration in Xcode
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
+
+# Use all available core's for Xcode build
+defaults write com.apple.dt.Xcode IDEBuildOperationMaxNumberOfConcurrentCompileTasks `sysctl -n hw.ncpu`
+
+# To stop Xcode from reopening files (storyboards) on launch
+defaults write com.apple.dt.Xcode IDEDisableStateRestoration -bool true
+
+# Log Xcode build commands reasoning
+defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true

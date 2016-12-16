@@ -1,20 +1,11 @@
 # Update App store update frequency to every day
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
-# Display Project build duration in Xcode
-defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
-
-# Log Xcode build commands reasoning
-defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
-
 # Disable Photos from opening whenever a new device is connected
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 # Always expand save dialogue
 defaults write -g NSNavPanelExpandedStateForSaveMode -boolean true
-
-# Use all available core's for Xcode build
-defaults write com.apple.dt.Xcode IDEBuildOperationMaxNumberOfConcurrentCompileTasks `sysctl -n hw.ncpu`
 
 # Show Appstore Debug menu
 defaults write com.apple.appstore ShowDebugMenu -bool true
