@@ -27,9 +27,10 @@
 	helper = osxkeychain
 	useHttpPath = true
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
 	required = true
+	process = git-lfs filter-process
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [branch]
 	autoSetupRebase = remote
 [http]
