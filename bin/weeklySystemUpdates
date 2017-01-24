@@ -12,11 +12,10 @@ rvm cleanup all
 rvm get stable
 rvmGemsetsCleanup
 
-sudo npm update -g
-
 # Custom cleaners
 resetFinderOpenWith
 resetLaunchpadDB
 
 # Get latest podspecs
 pod repo update
+
