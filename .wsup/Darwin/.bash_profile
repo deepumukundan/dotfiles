@@ -64,3 +64,6 @@ export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 # RVM settings
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Fastlane autocompletion
+. ~/.fastlane/completions/completion.sh
