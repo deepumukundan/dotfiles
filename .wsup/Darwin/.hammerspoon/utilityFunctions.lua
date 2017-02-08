@@ -22,6 +22,7 @@ function toggle_application(_appName)
         mainwin:application():unhide()
         mainwin:focus()
     end
+    hyper.trigerred = true
 end
 
 -- Callback function for application events

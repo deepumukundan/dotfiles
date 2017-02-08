@@ -1,19 +1,19 @@
-local hyper = {"⌘", "⌥", "⌃", "⇧"}
+-- local hyper = {"⌘", "⌥", "⌃", "⇧"}
 
 -- A global variable for the Hyper Mode
-k = hs.hotkey.modal.new({}, "F17")
+hyper = hs.hotkey.modal.new({}, "F17")
 
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
 pressedF18 = function()
-  k.triggered = false
-  k:enter()
+  hyper.triggered = false
+  hyper:enter()
 end
 
 -- Leave Hyper Mode when F18 (Hyper/Capslock) is pressed,
 --   send ESCAPE if no other keys are pressed.
 releasedF18 = function()
-  k:exit()
-  if not k.triggered then
+  hyper:exit()
+  if not hyper.triggered then
     hs.eventtap.keyStroke({}, 'ESCAPE')
   end
 end

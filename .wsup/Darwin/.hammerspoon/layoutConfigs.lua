@@ -28,8 +28,8 @@ internal_display = {
 }
 
 triple_display = {
-    {"Mail", 			  nil,                display_left,   hs.layout.left50,    nil, nil},
-    {"Airmail", 		  nil,              display_left, 	hs.layout.left50,    nil, nil},
+    {"Mail", 			        nil,          display_left,   hs.layout.left50,    nil, nil},
+    {"Airmail", 		      nil,          display_left, 	hs.layout.left50,    nil, nil},
     {"Microsoft Outlook", nil,          display_left,   hs.layout.left50,    nil, nil},
     {"iTerm2",            nil,          display_left,   hs.layout.right50,   nil, nil},
     {"Google Chrome",     nil,          display_middle, hs.layout.maximized, nil, nil},
