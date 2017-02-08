@@ -1,8 +1,8 @@
 local coreConfigs = require "coreConfigs"
-local windowConfigs = require "windowConfigs"
 local cursorConfigs = require "cursorConfigs"
 local hyperConfigs = require "hyperConfigs"
 local layoutConfigs = require "layoutConfigs"
+local windowConfigs = require "windowConfigs"
 
 ----------------------------------- Variables ------------------------------------
 
@@ -90,14 +90,14 @@ end
 
 ----------------------------- Actual Config Methods ------------------------------
 -- Hotkeys to resize windows absolutely
-hs.hotkey.bind(hyper, '[', function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
-hs.hotkey.bind(hyper, ']', function() hs.window.focusedWindow():moveToUnit(hs.layout.right50) end)
-hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():maximize() end)
+k:bind({}, '[', nil, function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
+k:bind({}, ']', nil, function() hs.window.focusedWindow():moveToUnit(hs.layout.right50) end)
+k:bind({}, 'f', nil, function() hs.window.focusedWindow():maximize() end)
 
-hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest() end)
-hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
-hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth() end)
-hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth() end)
+k:bind({}, 'h', nil, function() hs.window.focusedWindow():focusWindowWest() end)
+k:bind({}, 'l', nil, function() hs.window.focusedWindow():focusWindowEast() end)
+k:bind({}, 'k', nil, function() hs.window.focusedWindow():focusWindowNorth() end)
+k:bind({}, 'j', nil, function() hs.window.focusedWindow():focusWindowSouth() end)
 
 -- Hotkeys to trigger defined layouts & move
 k:bind({}, '0', nil, function() windowConfigs.moveWindow() end)
