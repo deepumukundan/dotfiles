@@ -9,7 +9,6 @@ hs.window.animationDuration = 0  -- Disable window animations (janky for iTerm)
 saved = {}
 saved.win = {}
 saved.winframe = {}
-local hyper = {"⌘", "⌥", "⌃", "⇧"}
 
 ----------------------------------- Methods ------------------------------------
 function returnLast()

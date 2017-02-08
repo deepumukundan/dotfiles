@@ -1,4 +1,5 @@
 local windowConfigs = require "windowConfigs"
+local cursorConfigs = require "cursorConfigs"
 
 ---------------------------------- Core Config -----------------------------------
 -- Ensure the IPC command line client is available
@@ -10,7 +11,32 @@ hs.ipc.cliInstall()
 -- hs.fnutil.map(hs.window.visibleWindows(), ensureIsInScreenBounds) end) -- TODO - Fix this so that after arrangement windows are not extending
 -- hs.hotkey.bind(hyper, ';', function() hs.fnutil.map(hs.window.visibleWindows(), hs.grid.snap) end) --TODO - Verify
 
+----------------------------------- Hyper Key ------------------------------------
+local hyper = {"⌘", "⌥", "⌃", "⇧"}
+
+-- A global variable for the Hyper Mode
+k = hs.hotkey.modal.new({}, "F17")
+
+-- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
+pressedF18 = function()
+  k.triggered = false
+  k:enter()
+end
+
+-- Leave Hyper Mode when F18 (Hyper/Capslock) is pressed,
+--   send ESCAPE if no other keys are pressed.
+releasedF18 = function()
+  k:exit()
+  if not k.triggered then
+    hs.eventtap.keyStroke({}, 'ESCAPE')
+  end
+end
+
+-- Bind the Hyper key
+f18 = hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
+
 ----------------------------------- Variables ------------------------------------
+
 -- Things we need to clean up at reload
 local configFileWatcher = nil
 local appWatcher = nil
@@ -21,7 +47,6 @@ local screenWatcher = nil
 -- (Node: Capslock disabled normal function and bound to cmd+alt+ctrl+shift via Seil and Karabiner)
 local alt = {"⌥"}
 local cmd = {"⌘"}
-local hyper = {"⌘", "⌥", "⌃", "⇧"}
 
 -- Define monitor names for layout purposes
 local display_left = hs.screen.allScreens()[1]
@@ -49,7 +74,7 @@ local internal_display = {
     {"SourceTree",        nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Calendar",          nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Evernote",          nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Spotify",           nil,          display_laptop, hs.layout.maximized, nil, nil},    
+    {"Spotify",           nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"iTunes",            "iTunes",     display_laptop, hs.layout.maximized, nil, nil},
     {"iTunes",            "MiniPlayer", display_laptop, nil,                 nil, hs.geometry.rect(575, -45, 215, 45)},
     {"Finder",            nil,          display_laptop, hs.layout.maximized, nil, nil},
@@ -69,7 +94,7 @@ local triple_display = {
     {"SourceTree",        nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Calendar",          nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Evernote",          nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Spotify",           nil,          display_laptop, hs.layout.maximized, nil, nil},    
+    {"Spotify",           nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"iTunes",            "iTunes",     display_laptop, hs.layout.maximized, nil, nil},
     {"iTunes",            "MiniPlayer", display_laptop, nil,                 nil, hs.geometry.rect(575, -45, 215, 45)},
     {"Finder",            nil,          display_laptop, hs.layout.left50,    nil, nil},
@@ -137,17 +162,17 @@ end
 
 -- Move the cursor to middle of focused application
 function cursorToMiddle()
-  	local win = hs.window.focusedWindow()  	
+  	local win = hs.window.focusedWindow()
   	if(win ~= nil) then
 		local focusedFrame = win:frame()
 		local screen = win:screen()
-		if(screen ~= nil) then	
+		if(screen ~= nil) then
 			local screenFrame = screen:frame()
-	
+
 			local c = hs.mouse.getAbsolutePosition()
 			c.x = focusedFrame.w/2 + (focusedFrame.x - screenFrame.x)
 			c.y = focusedFrame.h/2 + (focusedFrame.y - screenFrame.y)
-		
+
 			hs.mouse.setRelativePosition(c, screen)
 		end
 	end
@@ -156,7 +181,7 @@ end
 function fullScreenWindows()
 	for win in hs.window.visibleWindows() do
 		hs.alert(win)
-	end 
+	end
 	--hs.window:ensureIsInScreenBounds())
 end
 
@@ -170,24 +195,24 @@ hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest(
 hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
 hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth() end)
 hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth() end)
-hs.hotkey.bind(hyper, '0', function() windowConfigs.moveWindow() end)
 
--- Hotkeys to trigger defined layouts
-hs.hotkey.bind(hyper, '1', function() hs.layout.apply(internal_display) end)
-hs.hotkey.bind(hyper, '2', function() hs.layout.apply(triple_display) end)
+-- Hotkeys to trigger defined layouts & move
+k:bind({}, '0', nil, function() windowConfigs.moveWindow() end)
+k:bind({}, '1', nil, function() hs.layout.apply(internal_display) end)
+k:bind({}, '2', nil, function() hs.layout.apply(triple_display) end)
 
 -- Application hotkeys
-hs.hotkey.bind(hyper, 't', function() toggle_application("iTerm") end)
-hs.hotkey.bind(hyper, 'g', function() toggle_application("Google Chrome") end)
-hs.hotkey.bind(hyper, 'x', function() toggle_application("Xcode") end)
-hs.hotkey.bind(hyper, 'e', function() toggle_application("Evernote") end)
+k:bind({}, 't', nil, function() toggle_application("iTerm") end)
+k:bind({}, 'g', nil, function() toggle_application("Google Chrome") end)
+k:bind({}, 'x', nil, function() toggle_application("Xcode") end)
 
 -- Misc hotkeys
-hs.hotkey.bind(hyper, 'r', hs.reload)
-hs.hotkey.bind(hyper, 'y', hs.toggleConsole)
-hs.hotkey.bind(hyper, 'n', function() os.execute("open ~") end)
-hs.hotkey.bind(hyper, 'm', cursorToMiddle)
-hs.hotkey.bind(cmd,   'e', hs.hints.windowHints)
+k:bind({}, 'r', nil, hs.reload)
+k:bind({}, 'u', nil, function() cursorConfigs.mouseHighlight() end)
+k:bind({}, 'y', nil, hs.toggleConsole)
+k:bind({}, 'n', nil, function() os.execute("open ~") end)
+k:bind({}, 'm', nil, cursorToMiddle)
+k:bind({}, 'e', nil, hs.hints.windowHints)
 
 -- Create and start our callbacks
 configFileWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.wsup/dotfiles/.wsup/Darwin/.hammerspoon/", reloadConfig)
