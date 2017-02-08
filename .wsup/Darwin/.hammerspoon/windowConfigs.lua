@@ -1,6 +1,3 @@
----------------------------------- Core Config -----------------------------------
-hs.window.animationDuration = 0  -- Disable window animations (janky for iTerm)
-
 ----------------------------------- Variables ------------------------------------
 --
 --		saved.win 		The window last moved.

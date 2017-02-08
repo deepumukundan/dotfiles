@@ -1,39 +1,8 @@
+local coreConfigs = require "coreConfigs"
 local windowConfigs = require "windowConfigs"
 local cursorConfigs = require "cursorConfigs"
-
----------------------------------- Core Config -----------------------------------
--- Ensure the IPC command line client is available
-hs.ipc.cliInstall()
-
--- Set the style of hints
--- hs.hints.fontName = "SanFranciscoDisplay-Medium"
--- hs.hints.style = "vimperator"
--- hs.fnutil.map(hs.window.visibleWindows(), ensureIsInScreenBounds) end) -- TODO - Fix this so that after arrangement windows are not extending
--- hs.hotkey.bind(hyper, ';', function() hs.fnutil.map(hs.window.visibleWindows(), hs.grid.snap) end) --TODO - Verify
-
------------------------------------ Hyper Key ------------------------------------
-local hyper = {"⌘", "⌥", "⌃", "⇧"}
-
--- A global variable for the Hyper Mode
-k = hs.hotkey.modal.new({}, "F17")
-
--- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
-pressedF18 = function()
-  k.triggered = false
-  k:enter()
-end
-
--- Leave Hyper Mode when F18 (Hyper/Capslock) is pressed,
---   send ESCAPE if no other keys are pressed.
-releasedF18 = function()
-  k:exit()
-  if not k.triggered then
-    hs.eventtap.keyStroke({}, 'ESCAPE')
-  end
-end
-
--- Bind the Hyper key
-f18 = hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
+local hyperConfigs = require "hyperConfigs"
+local layoutConfigs = require "layoutConfigs"
 
 ----------------------------------- Variables ------------------------------------
 
@@ -48,59 +17,11 @@ local screenWatcher = nil
 local alt = {"⌥"}
 local cmd = {"⌘"}
 
--- Define monitor names for layout purposes
-local display_left = hs.screen.allScreens()[1]
-local display_middle = hs.screen.allScreens()[3]
-local display_laptop = hs.screen.allScreens()[2]
-
 -- Defines for screen watcher
 local lastNumberOfScreens = #hs.screen.allScreens()
 
--- Define window layouts
---   Format reminder:
---     {"App name", "Window name", "Display Name", "unitrect", "framerect", "fullframerect"},
-
-local internal_display = {
-    {"Mail", 			  nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Airmail", 		  nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Microsoft Outlook", nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"iTerm2",            nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Google Chrome",     nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"TextWrangler",      nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Xcode",             nil,          display_laptop, hs.layout.maximized, nil, nil},
-	{"ReadKit",           nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Atom",              nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"HipChat",           nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"SourceTree",        nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Calendar",          nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Evernote",          nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Spotify",           nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"iTunes",            "iTunes",     display_laptop, hs.layout.maximized, nil, nil},
-    {"iTunes",            "MiniPlayer", display_laptop, nil,                 nil, hs.geometry.rect(575, -45, 215, 45)},
-    {"Finder",            nil,          display_laptop, hs.layout.maximized, nil, nil},
-}
-
-local triple_display = {
-    {"Mail", 			  nil,          display_left,   hs.layout.left50,    nil, nil},
-    {"Airmail", 		  nil,          display_left, 	hs.layout.left50,    nil, nil},
-    {"Microsoft Outlook", nil,          display_left,   hs.layout.left50,    nil, nil},
-    {"iTerm2",            nil,          display_left,   hs.layout.right50,   nil, nil},
-    {"Google Chrome",     nil,          display_middle, hs.layout.maximized, nil, nil},
-    {"TextWrangler",      nil,          display_middle, hs.layout.maximized, nil, nil},
-    {"Xcode",             nil,          display_middle, hs.layout.maximized, nil, nil},
-	{"ReadKit",           nil,          display_left, 	hs.layout.maximized, nil, nil},
-    {"Atom",              nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"HipChat",           nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"SourceTree",        nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Calendar",          nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Evernote",          nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"Spotify",           nil,          display_laptop, hs.layout.maximized, nil, nil},
-    {"iTunes",            "iTunes",     display_laptop, hs.layout.maximized, nil, nil},
-    {"iTunes",            "MiniPlayer", display_laptop, nil,                 nil, hs.geometry.rect(575, -45, 215, 45)},
-    {"Finder",            nil,          display_laptop, hs.layout.left50,    nil, nil},
-}
-
 -------------------------------- Utility Methods ---------------------------------
+
 -- Function to toggle an application between being the frontmost app, and being hidden
 function toggle_application(_appName)
     local app = hs.appfinder.appFromName(_appName)
@@ -160,24 +81,6 @@ function reloadConfig()
     hs.reload()
 end
 
--- Move the cursor to middle of focused application
-function cursorToMiddle()
-  	local win = hs.window.focusedWindow()
-  	if(win ~= nil) then
-		local focusedFrame = win:frame()
-		local screen = win:screen()
-		if(screen ~= nil) then
-			local screenFrame = screen:frame()
-
-			local c = hs.mouse.getAbsolutePosition()
-			c.x = focusedFrame.w/2 + (focusedFrame.x - screenFrame.x)
-			c.y = focusedFrame.h/2 + (focusedFrame.y - screenFrame.y)
-
-			hs.mouse.setRelativePosition(c, screen)
-		end
-	end
-end
-
 function fullScreenWindows()
 	for win in hs.window.visibleWindows() do
 		hs.alert(win)
@@ -208,10 +111,10 @@ k:bind({}, 'x', nil, function() toggle_application("Xcode") end)
 
 -- Misc hotkeys
 k:bind({}, 'r', nil, hs.reload)
-k:bind({}, 'u', nil, function() cursorConfigs.mouseHighlight() end)
 k:bind({}, 'y', nil, hs.toggleConsole)
 k:bind({}, 'n', nil, function() os.execute("open ~") end)
 k:bind({}, 'm', nil, cursorToMiddle)
+k:bind({}, 'u', nil, mouseHighlight)
 k:bind({}, 'e', nil, hs.hints.windowHints)
 
 -- Create and start our callbacks
