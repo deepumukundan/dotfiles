@@ -1,0 +1,10 @@
+hidden=$(defaults read com.apple.finder AppleShowAllFiles)
+
+if [[ $hidden = NO ]]
+  then
+    defaults write com.apple.finder AppleShowAllFiles YES
+  else
+    defaults write com.apple.finder AppleShowAllFiles NO
+fi
+
+killall Finder
