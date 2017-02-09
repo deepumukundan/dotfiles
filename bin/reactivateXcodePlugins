@@ -1,5 +1,0 @@
-# First reset the list of plugins for the current Xcode version
-defaults delete com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-$(xcodebuild -version | grep Xcode | sed 's/\Xcode //g')
-
-# Find all plugins Info.plist and insert current Xcode's key
-find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.plist -maxdepth 3 | xargs -I{} defaults write {} DVTPlugInCompatibilityUUIDs -array-add `defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID`

@@ -1,4 +1,0 @@
-# If Plugins exist, Kills Xcode & Copies Xcode Plugins to Backup folder
-killall Xcode
-mv ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins_Backup
-echo "❌   Xcode Plug-ins disabled"
