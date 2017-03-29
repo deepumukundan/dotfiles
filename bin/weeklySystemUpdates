@@ -1,21 +1,23 @@
 #!/usr/bin/env bash
 
+# Homebrew
 brew update && brew upgrade && brew cleanup && brew prune
-brew upgrade brew-cask && brew cask cleanup
+brew cask cleanup
 brew outdated
-
-gem update --system && gem update && gem clean
-gem cleanup
-rvm cleanup all
 
 # Update RVM installation
 rvm get stable
-rvmGemsetsCleanup
 
-# Custom cleaners
-resetFinderOpenWith
-resetLaunchpadDB
+# Ruby
+gem update --system && gem update && gem clean && gem cleanup
+rvm cleanup all
+rvmGemsetsCleanup
 
 # Get latest podspecs
 pod repo update
 
+# Custom cleaners
+resetFinderOpenWith
+resetLaunchpadDB
+recursiveDeleteDSStore
+killDerivedData
