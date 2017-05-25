@@ -148,7 +148,7 @@ if [ ! -n "${BULLETTRAIN_DIR_SHOW+1}" ]; then
   BULLETTRAIN_DIR_SHOW=true
 fi
 if [ ! -n "${BULLETTRAIN_DIR_BG+1}" ]; then
-  BULLETTRAIN_DIR_BG=blue
+  BULLETTRAIN_DIR_BG=magenta
 fi
 if [ ! -n "${BULLETTRAIN_DIR_FG+1}" ]; then
   BULLETTRAIN_DIR_FG=white
