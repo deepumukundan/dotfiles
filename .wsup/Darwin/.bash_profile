@@ -57,9 +57,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # 1pass settings
 export ONEPASSWORD_KEYCHAIN=~/Dropbox/1Password/1Password.agilekeychain
 
-# Setup swift environment manager
-if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
-
 # Setup swift toolchains in the path
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 
