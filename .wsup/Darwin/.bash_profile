@@ -2,9 +2,6 @@
 # deepumukundan mac os x .bash_profile
 #
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
 # Set path
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
@@ -62,10 +59,6 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # Setup swift toolchains in the path
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
-
-# RVM settings
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Fastlane autocompletion
 . ~/.fastlane/completions/completion.sh
