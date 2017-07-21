@@ -2,6 +2,10 @@
 # deepumukundan mac os x .bash_profile
 #
 
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # Set path
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
@@ -36,8 +40,6 @@ function locs() { find . -type f -iname "*.swift" -exec wc -l {} \; | awk '{tota
 source ~/bin/shorten
 source ~/bin/fixAppStore
 
-source ~/.profile
-
 # Load private settings
 if [ -f $HOME/.bash_private ] && [ $USER = "deepumukundan" ]; then
     source $HOME/.bash_private
@@ -62,3 +64,9 @@ export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 
 # Fastlane autocompletion
 . ~/.fastlane/completions/completion.sh
+
+# rbenv
+eval "$(rbenv init -)"
+
+echo "🚀  .bash_profile loaded!"
+echo "🛣  PATH:" $PATH
