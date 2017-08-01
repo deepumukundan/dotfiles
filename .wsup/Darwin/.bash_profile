@@ -68,5 +68,5 @@ export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 # rbenv
 eval "$(rbenv init -)"
 
-echo "🚀  .bash_profile loaded!"
 echo "🛣  PATH:" $PATH
+echo "🎉  .bash_profile loaded..."
