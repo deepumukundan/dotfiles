@@ -5,13 +5,8 @@ brew update && brew upgrade && brew cleanup && brew prune
 brew cask cleanup
 brew outdated
 
-# Update RVM installation
-rvm get stable
-
 # Ruby
 gem update --system && gem update && gem clean && gem cleanup
-rvm cleanup all
-rvmGemsetsCleanup
 
 # Get latest podspecs
 pod repo update
