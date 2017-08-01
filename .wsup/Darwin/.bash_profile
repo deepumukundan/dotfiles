@@ -1,13 +1,6 @@
-#
-# deepumukundan mac os x .bash_profile
-#
-
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-# Set path
-export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 # Set aliases for frequently used commands
 alias c='clear'
@@ -56,16 +49,19 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # 1pass settings
 export ONEPASSWORD_KEYCHAIN=~/Dropbox/1Password/Vaults/1Password.agilekeychain
 
+# Setup swift toolchains in path
+export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
+
 # Setup swift environment manager
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
-# Setup swift toolchains in the path
-export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
+# Setup my tools in path
+export PATH=$PATH:~/bin
 
-# Fastlane autocompletion
+# Setup Fastlane autocompletion
 . ~/.fastlane/completions/completion.sh
 
-# rbenv
+# Ruby environment manager
 eval "$(rbenv init -)"
 
 echo "🛣  PATH:" $PATH
