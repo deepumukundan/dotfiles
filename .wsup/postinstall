@@ -2,7 +2,3 @@
 #
 # postinstall script
 set -o nounset
-
-# Install additional tools not covered by default set
-brew tap thoughtbot/formulae
-brew install pick
