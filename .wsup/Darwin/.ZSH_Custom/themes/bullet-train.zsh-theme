@@ -13,6 +13,8 @@
 # The default configuration, that can be overwrite in your .zshrc file
 # ------------------------------------------------------------------------------
 
+export TERM="xterm-256color"
+
 VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Define order and content of prompt

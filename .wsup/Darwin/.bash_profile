@@ -64,5 +64,5 @@ export PATH=$PATH:~/bin
 # Ruby environment manager
 eval "$(rbenv init -)"
 
-echo "🛣  PATH:" $PATH
+echo "🛣  PATH:" $PATH 
 echo "🎉  .bash_profile loaded..."
