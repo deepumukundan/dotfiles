@@ -1,7 +1,7 @@
 -- Define monitor names for layout purposes
-local display_left = hs.screen.allScreens()[1]
+local display_left = hs.screen.allScreens()[2]
 local display_middle = hs.screen.allScreens()[3]
-local display_laptop = hs.screen.allScreens()[2]
+local display_laptop = hs.screen.allScreens()[1]
 
 -- Define window layouts
 --   Format reminder:
