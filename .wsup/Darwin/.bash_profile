@@ -19,7 +19,9 @@ alias right="printf '%*s' $(tput cols)"
 alias t='tree -aCF'
 alias tw='open -a TextWrangler'
 alias wd='cd ~/Documents/Workspace'
-alias x='xcode-select -p'
+alias x='sudo xcode-select -s /Applications/Xcode.app'
+alias xb='sudo xcode-select -s /Applications/Xcode-beta.app'
+alias xp='xcode-select -p'
 alias xs='sudo xcode-select -s'
 alias y='open -a Yoink'
 
