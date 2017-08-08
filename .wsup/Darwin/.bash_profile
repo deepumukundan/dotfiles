@@ -3,51 +3,45 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Set aliases for frequently used commands
-alias c='clear'
-alias ls='ls -GF'
-alias tw='open -a TextWrangler'
 alias a='open -a Atom'
+alias bf='cd ~/Documents/Workspace/Personal/Brewfiles'
+alias c='clear'
+alias dd='cd ~/Library/Developer/Xcode/DerivedData'
+alias dot='cd ~/.wsup/dotfiles'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias gh='cd ~/Documents/Workspace/Github-Clones'
+alias grep='grep --color=auto'
 alias h='history'
-alias y='open -a Yoink'
+alias ls='ls -GF'
+alias o='open .'
+alias right="printf '%*s' $(tput cols)"
 alias t='tree -aCF'
+alias tw='open -a TextWrangler'
+alias wd='cd ~/Documents/Workspace'
 alias x='xcode-select -p'
 alias xs='sudo xcode-select -s'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias right="printf '%*s' $(tput cols)"
-alias dd='cd ~/Library/Developer/Xcode/DerivedData'
-alias gh='cd ~/Documents/Workspace/Github-Clones'
+alias y='open -a Yoink'
 
 # Functions
 function 1p() { 1pass --fuzzy "$1" | pbcopy; }
-function f()  { find . -iname "*$1*" ${@:2} }
-function r()  { grep "$1" ${@:2} -R . }
-function rule() { printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}}
-function hpick() { $(history | cut -c8- | sort -u | pick) }
-function gpick() { git checkout $(git branch | pick) }
 function dpick() { cd $(find . -type d | pick) }
+function f()  { find . -iname "*$1*" ${@:2} }
+function gpick() { git checkout $(git branch | pick) }
+function hpick() { $(history | cut -c8- | sort -u | pick) }
 function kpick() { kill $(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | pick -do | tail -n +2) }
 function loc() { find . -type f -iname "*.[hm]" -exec wc -l {} \; | awk '{total += $1} END{print total}' }
 function locs() { find . -type f -iname "*.swift" -exec wc -l {} \; | awk '{total += $1} END{print total}' }
+function r()  { grep "$1" ${@:2} -R . }
+function rule() { printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}}
 source ~/bin/shorten
 source ~/bin/fixAppStore
-
-# Load private settings
-if [ -f $HOME/.bash_private ] && [ $USER = "deepumukundan" ]; then
-    source $HOME/.bash_private
-fi
-
-# Load work specific settings
-if [ -f $HOME/.bash_work ] && [ $USER = "dmukundan" ]; then
-    source $HOME/.bash_work
-fi
 
 # Brew cask settings - Symlink to /Applications directory by default
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # 1pass settings
-export ONEPASSWORD_KEYCHAIN=~/Dropbox/1Password/Vaults/1Password.agilekeychain
+export ONEPASSWORD_KEYCHAIN=~/Dropbox/Apps/1Password/Vaults/1Password.opvault
 
 # Setup swift toolchains in path
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
@@ -55,14 +49,18 @@ export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 # Setup swift environment manager
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
-# Setup my tools in path
+# Setup my commandline tools in path
 export PATH=$PATH:~/bin
 
 # Setup Fastlane autocompletion
 . ~/.fastlane/completions/completion.sh
 
+# Load personal and work configs
+source $HOME/.bash_private
+source $HOME/.bash_work
+
 # Ruby environment manager
 eval "$(rbenv init -)"
 
-echo "🛣  PATH:" $PATH 
+echo "🛣  PATH:" $PATH
 echo "🎉  .bash_profile loaded..."
