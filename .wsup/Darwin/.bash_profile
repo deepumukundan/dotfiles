@@ -4,7 +4,7 @@ export LC_ALL=en_US.UTF-8
 
 # Set aliases for frequently used commands
 alias a='open -a Atom'
-alias bf='cd ~/Documents/Workspace/Personal/Brewfiles'
+alias bf='cd ~/Documents/Workspace/Personal/Brewfiles/Common'
 alias c='clear'
 alias dd='cd ~/Library/Developer/Xcode/DerivedData'
 alias dot='cd ~/.wsup/dotfiles'
