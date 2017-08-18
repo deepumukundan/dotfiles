@@ -20,6 +20,9 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 # TextEdit use Plain text mode by default
 defaults write com.apple.TextEdit RichText -int 0
 
+# Quicklook enable text selection
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+
 # Prevent time machine from suggesting new HDD's as backup drives
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
