@@ -13,5 +13,5 @@ rm -rf ~/Library/Developer/CoreSimulator
 # Kill Derived Data
 killDerivedData
 
-# Recreated simulators
-snapshot reset_simulators 
+# Recreate simulators
+snapshot reset_simulators

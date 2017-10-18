@@ -1,0 +1,11 @@
+# Kill the simulator first since simctl is not able to delete a running simulator
+killall "iOS Simulator"
+
+# List all simulators, parse the ID's, and erase them
+xcrun simctl list | grep -oE "[A-Z0-9\-]{36}" | xargs xcrun simctl delete
+
+# Remove CoreSimulators folder
+rm -rf ~/Library/Developer/CoreSimulator
+
+# Kill Derived Data
+killDerivedData
