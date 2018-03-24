@@ -4,9 +4,9 @@ export LC_ALL=en_US.UTF-8
 
 # Set aliases for frequently used commands
 alias a='open -a Atom'
-alias vs='open -a "Visual Studio Code"'
 alias bf='cd ~/Documents/Workspace/Personal/Brewfiles/Common'
 alias c='clear'
+alias code='open -a "Visual Studio Code"'
 alias dd='cd ~/Library/Developer/Xcode/DerivedData'
 alias dot='cd ~/.wsup/dotfiles'
 alias egrep='egrep --color=auto'
