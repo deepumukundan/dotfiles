@@ -3,7 +3,7 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Set aliases for frequently used commands
-alias a='open -a Atom'
+alias a='open -a "Visual Studio Code"'
 alias bf='cd ~/Documents/Workspace/Personal/Brewfiles/Common'
 alias c='clear'
 alias code='open -a "Visual Studio Code"'
