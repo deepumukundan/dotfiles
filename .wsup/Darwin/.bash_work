@@ -4,10 +4,7 @@
 # Work related alias
 alias hw1='cd ~/Documents/Workspace/Hotwire/HotwireClone01/main'
 alias hw2='cd ~/Documents/Workspace/Hotwire/HotwireClone02/main'
-alias hwt1='cd ~/Documents/Workspace/Hotwire/HotwireWorkTree01/main'
-alias hwt2='cd ~/Documents/Workspace/Hotwire/HotwireWorkTree02/main'
-
-alias hwc='cd ~/Documents/Workspace/Hotwire/ios-chef'
+alias hwc='cd ~/Documents/Workspace/Hotwire/HotwireCloneHWAppMain'
 
 function j() { ssh releaseengineering@172.17.210."$@" }
 function p() { ssh pi@172.17.210."$@" }
