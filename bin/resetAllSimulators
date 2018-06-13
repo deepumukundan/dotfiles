@@ -14,4 +14,4 @@ rm -rf ~/Library/Developer/CoreSimulator
 killDerivedData
 
 # Recreate simulators
-snapshot reset_simulators
+SNAPSHOT_FORCE_DELETE=1 fastlane snapshot reset_simulators
