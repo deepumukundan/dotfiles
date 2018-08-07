@@ -9,3 +9,6 @@ defaults write com.apple.dt.Xcode IDEDisableStateRestoration -bool true
 
 # Log Xcode build commands reasoning
 defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
+
+# Print more detailed activity logs
+defaults write com.apple.dt.XCBuild EnableDebugActivityLogs -bool true

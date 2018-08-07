@@ -15,8 +15,18 @@ hyper:bind({}, 'f', nil, function() hs.window.focusedWindow():maximize() end)
 
 -- Hotkeys to trigger defined layouts & move
 hyper:bind({}, '0', nil, function() windowConfigs.moveWindow() end)
-hyper:bind({}, '1', nil, function() hs.layout.apply(internal_display) end)
-hyper:bind({}, '2', nil, function() hs.layout.apply(triple_display) end)
+
+hyper:bind({}, '1', nil,
+function()
+    hs.layout.apply(internal_display)
+    hs.notify.show("Display Switch", "", "Internal Display Configuration", "")
+end)
+
+hyper:bind({}, '2', nil,
+function()
+    hs.layout.apply(triple_display)
+    hs.notify.show("Display Switch", "", "Triple Monitor Configuration", "")
+end)
 
 -- Application hotkeys
 hyper:bind({}, 't', nil, function() toggle_application("iTerm") end)
