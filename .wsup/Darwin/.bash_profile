@@ -25,6 +25,7 @@ alias xd='sudo xcode-select -s /Applications/Xcode.app'
 alias xp='xcode-select -p'
 alias xs='sudo xcode-select -s'
 alias y='open -a Yoink'
+alias x='cd ~/Documents/Workspace/Personal/Project-X'
 
 # Functions
 function 1p() { 1pass --fuzzy "$1" | pbcopy; }
