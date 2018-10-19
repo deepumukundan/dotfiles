@@ -12,3 +12,6 @@ defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
 
 # Print more detailed activity logs
 defaults write com.apple.dt.XCBuild EnableDebugActivityLogs -bool true
+
+# Show touches on iOS Simulator
+defaults write com.apple.iphonesimulator ShowSingleTouches 1
