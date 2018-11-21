@@ -13,6 +13,5 @@ pod repo update
 
 # Custom cleaners
 resetFinderOpenWith
-resetLaunchpadDB
 recursiveDeleteDSStore
 killDerivedData
