@@ -25,13 +25,17 @@ end)
 hyper:bind({}, '2', nil,
 function()
     hs.layout.apply(triple_display)
-    hs.notify.show("Display Switch", "", "Triple Monitor Configuration", "")
+    hs.notify.show("Display Switch", "", "Triple Display Configuration", "")
 end)
 
 -- Application hotkeys
 hyper:bind({}, 't', nil, function() toggle_application("iTerm") end)
 hyper:bind({}, 'g', nil, function() toggle_application("Google Chrome") end)
 hyper:bind({}, 'x', nil, function() toggle_application("Xcode") end)
+hyper:bind({}, 'c', nil, function() toggle_application("Code") end)
+hyper:bind({}, 'o', nil, function() toggle_application("Outlook") end)
+hyper:bind({}, 'l', nil, function() toggle_application("Slack") end)
+hyper:bind({}, 's', nil, function() toggle_application("Sourcetree") end)
 
 -- Misc hotkeys
 hyper:bind({}, 'r', nil, hs.reload)
