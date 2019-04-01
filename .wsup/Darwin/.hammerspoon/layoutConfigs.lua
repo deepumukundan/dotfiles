@@ -36,7 +36,7 @@ triple_display = {
     {"Google Chrome",     nil,          display_middle, hs.layout.maximized, nil, nil},
     {"Code",              nil,          display_middle, hs.layout.maximized, nil, nil},
     {"Xcode",             nil,          display_middle, hs.layout.maximized, nil, nil},
-    {"ReadKit",           nil,          display_middle, hs.layout.maximized, nil, nil},
+    {"ReadKit",           nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Atom",              nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Charles",           nil,          display_laptop, hs.layout.maximized, nil, nil},
     {"Slack",             nil,          display_laptop, hs.layout.maximized, nil, nil},

@@ -4,28 +4,24 @@ export LC_ALL=en_US.UTF-8
 
 # Set aliases for frequently used commands
 alias a='open -a "Visual Studio Code"'
-alias bf='cd ~/Documents/Workspace/Personal/Brewfiles/Common'
 alias c='clear'
 alias code='open -a "Visual Studio Code"'
 alias dd='cd ~/Library/Developer/Xcode/DerivedData'
 alias dot='cd ~/.wsup/dotfiles'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias gh='cd ~/Documents/Workspace/Github-Clones'
 alias grep='grep --color=auto'
 alias h='history'
 alias ls='ls -GF'
 alias o='open .'
 alias right="printf '%*s' $(tput cols)"
 alias t='tree -aCF'
-alias tw='open -a TextWrangler'
 alias wd='cd ~/Documents/Workspace'
 alias xb='sudo xcode-select -s /Applications/Xcode-beta.app'
 alias xd='sudo xcode-select -s /Applications/Xcode.app'
 alias xp='xcode-select -p'
 alias xs='sudo xcode-select -s'
 alias y='open -a Yoink'
-alias x='cd ~/Documents/Workspace/Personal/Project-X'
 
 # Functions
 function 1p() { 1pass --fuzzy "$1" | pbcopy; }

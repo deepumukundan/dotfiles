@@ -3,3 +3,6 @@
 
 # Personal mac aliases
 alias hsy='cd ~/Documents/Workspace/Personal/Helpsy'
+alias x='cd ~/Documents/Workspace/Personal/Savings'
+alias bf='cd ~/Documents/Workspace/Personal/Brewfiles/Common'
+alias gh='cd ~/Documents/Workspace/Github-Clones'

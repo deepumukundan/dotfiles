@@ -15,3 +15,6 @@ defaults write com.apple.dt.XCBuild EnableDebugActivityLogs -bool true
 
 # Show touches on iOS Simulator
 defaults write com.apple.iphonesimulator ShowSingleTouches 1
+
+# Show Car play simulator
+defaults write com.apple.iphonesimulator CarPlay -bool YES
