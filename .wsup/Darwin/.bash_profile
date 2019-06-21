@@ -40,9 +40,6 @@ source ~/bin/fixAppStore
 # Brew cask settings - Symlink to /Applications directory by default
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# 1pass settings
-export ONEPASSWORD_KEYCHAIN=~/Dropbox/Apps/1Password/Vaults/1Password.opvault
-
 # Setup swift toolchains in path
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 
