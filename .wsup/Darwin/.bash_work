@@ -2,10 +2,5 @@
 # .bash_work for Darwin
 
 # Work related alias
-alias hw1='cd ~/Documents/Workspace/Hotwire/HotwireClone01/main'
-alias hw2='cd ~/Documents/Workspace/Hotwire/HotwireClone02/main'
-alias hwc='cd ~/Documents/Workspace/Hotwire/HotwireCloneHWAppMain'
-alias sp='cd ~/Documents/Workspace/Hotwire/NetworkResponseSpoofer'
-
 function j() { ssh releaseengineering@172.17.210."$@" }
 function p() { ssh pi@172.17.210."$@" }
