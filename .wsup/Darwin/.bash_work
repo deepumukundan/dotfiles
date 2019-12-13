@@ -4,3 +4,16 @@
 # Work related alias
 function j() { ssh releaseengineering@172.17.210."$@" }
 function p() { ssh pi@172.17.210."$@" }
+
+alias b='cd ~/Documents/Workspace/badger-ios'
+alias goo='cd ~/Documents/Workspace/go/src'
+alias sys='cd ~/Documents/Workspace/system-tests'
+
+export OKTA2AWS_DUO_MFA_OPTION='Duo Push'
+
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH:~/go/bin
+
+alias ggm='git merge master'
+
+source ~/bin/danger-config
