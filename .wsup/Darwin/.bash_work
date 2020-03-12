@@ -16,4 +16,6 @@ export PATH=$PATH:$GOPATH:~/go/bin
 
 alias ggm='git merge master'
 
+if [ -f ~/bin/danger-config ]; then
 source ~/bin/danger-config
+fi
