@@ -5,9 +5,9 @@
 function j() { ssh releaseengineering@172.17.210."$@" }
 function p() { ssh pi@172.17.210."$@" }
 
-alias b='cd ~/Documents/Workspace/badger-ios'
-alias goo='cd ~/Documents/Workspace/go/src'
-alias sys='cd ~/Documents/Workspace/system-tests'
+alias b='cd ~/Documents/Workspace/Workday/badger-ios'
+alias goo='cd ~/go/src'
+alias sys='cd ~/Documents/Workspace/Workday/system-tests'
 
 export OKTA2AWS_DUO_MFA_OPTION='Duo Push'
 
