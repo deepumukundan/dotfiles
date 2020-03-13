@@ -4,12 +4,16 @@ export LC_ALL=en_US.UTF-8
 
 # Set aliases for frequently used commands
 alias a='open -a "Visual Studio Code"'
+alias bf='cd ~/Documents/Workspace/Personal/Brewfiles'
 alias c='clear'
+alias cb='carthage bootstrap --platform iOS --cache-builds'
+alias cu='carthage update --platform iOS --cache-builds'
 alias code='open -a "Visual Studio Code"'
 alias dd='cd ~/Library/Developer/Xcode/DerivedData'
 alias dot='cd ~/.wsup/dotfiles'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+alias gh='cd ~/Documents/Workspace/Github-Clones'
 alias grep='grep --color=auto'
 alias h='history'
 alias ls='ls -GF'
@@ -21,7 +25,6 @@ alias xb='sudo xcode-select -s /Applications/Xcode-beta.app'
 alias xd='sudo xcode-select -s /Applications/Xcode.app'
 alias xp='xcode-select -p'
 alias xs='sudo xcode-select -s'
-alias cb='carthage bootstrap --platform iOS --cache-builds'
 alias y='open -a Yoink'
 
 # Functions
