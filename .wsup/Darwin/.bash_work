@@ -6,6 +6,8 @@ function j() { ssh releaseengineering@172.17.210."$@" }
 function p() { ssh pi@172.17.210."$@" }
 
 alias b='cd ~/Documents/Workspace/Workday/badger-ios'
+alias wt1='cd ~/Documents/Workspace/Workday/badger-ios01'
+alias wt2='cd ~/Documents/Workspace/Workday/badger-ios02'
 alias goo='cd ~/go/src'
 alias sys='cd ~/Documents/Workspace/Workday/system-tests'
 

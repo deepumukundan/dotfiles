@@ -21,6 +21,7 @@ alias xb='sudo xcode-select -s /Applications/Xcode-beta.app'
 alias xd='sudo xcode-select -s /Applications/Xcode.app'
 alias xp='xcode-select -p'
 alias xs='sudo xcode-select -s'
+alias cb='carthage bootstrap --platform iOS --cache-builds'
 alias y='open -a Yoink'
 
 # Functions
@@ -60,4 +61,4 @@ source $HOME/.bash_work
 eval "$(rbenv init -)"
 
 echo "🛣  PATH:" $PATH
-echo "🎉  .bash_profile loaded..."
+echo "🎉  Personal preferences loaded..."
