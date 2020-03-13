@@ -1,5 +1,5 @@
-# Helper for git checkout remote branch with regex capability. Just do 'ch <partial branch name>' from terminal to checkout a remote branch matching the regex
+# Helper for git checkout remote branch with regex capability. 
+# Just do 'ch <partial branch name>' from terminal to checkout a remote branch matching the regex
 
-git fetch
+git fetch --prune
 git branch -r | grep -i $1 | sed "s/origin\///" | head -1 | xargs -I branch git checkout branch
-
