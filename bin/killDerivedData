@@ -1,4 +1,4 @@
 rm -rf ~/Library/Developer/Xcode/DerivedData
 rm -rf ~/Library/Caches/com.apple.dt.Xcode
 
-Echo '🗑 Derived data was eliminated!'
+Echo '🗑   Derived data was eliminated!'
