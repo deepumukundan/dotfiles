@@ -1,4 +1,6 @@
 rm -rf ~/Library/Developer/Xcode/DerivedData
 rm -rf ~/Library/Caches/com.apple.dt.Xcode
+rm -rf ~/Library/Caches/org.carthage.CarthageKit
+rm -rf ~/Library/Developer/CoreSimulator/Caches
 
-Echo '🗑   Derived data was eliminated!'
+echo '🗑   Derived data + Xcode Cache + Carthage Cache eliminated!'
