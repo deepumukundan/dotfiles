@@ -15,12 +15,17 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias gh='cd ~/Documents/Workspace/Github-Clones'
 alias grep='grep --color=auto'
+alias gs='git stash'
+alias gsp='git stash pop'
 alias h='history'
+alias hg='history | grep'
+alias ip='ipconfig getifaddr en0 || ipconfig getifaddr en1'
 alias ls='ls -GF'
 alias o='open .'
 alias pi='pod install'
 alias pu='pod update'
 alias right="printf '%*s' $(tput cols)"
+alias sim='xcrun simctl'
 alias t='tree -aCF'
 alias wd='cd ~/Documents/Workspace'
 alias xb='sudo xcode-select -s /Applications/Xcode-beta.app'
@@ -40,30 +45,36 @@ function loc() { find . -type f -iname "*.[hm]" -exec wc -l {} \; | awk '{total 
 function locs() { find . -type f -iname "*.swift" -exec wc -l {} \; | awk '{total += $1} END{print total}' }
 function r()  { grep "$1" ${@:2} -R . }
 function rule() { printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}}
+
 source ~/bin/shorten
 source ~/bin/fixAppStore
 
 # Brew cask settings - Symlink to /Applications directory by default
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# Setup Fastlane autocompletion
+. ~/.fastlane/completions/completion.sh
+
 # Setup swift toolchains in path
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 
-# Setup swift environment manager
+# Swift environment manager
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
-# Setup my commandline tools in path
-export PATH=$PATH:~/bin
+# Ruby environment manager
+eval "$(rbenv init -)"
 
-# Setup Fastlane autocompletion
-. ~/.fastlane/completions/completion.sh
+# Node environment manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Load personal and work configs
 source $HOME/.bash_private
 source $HOME/.bash_work
 
-# Ruby environment manager
-eval "$(rbenv init -)"
+# Setup my commandline tools in path
+export PATH=$PATH:~/bin
 
 echo "🛣  PATH:" $PATH
 echo "🎉  Personal preferences loaded..."

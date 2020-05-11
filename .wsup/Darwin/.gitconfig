@@ -3,7 +3,7 @@
 	email = deepumukundan@gmail.com
 [core]
 	editor = nano
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/deepu.mukundan/.gitignore_global
 	ignorecase = false
 [alias]
 	st = status
@@ -42,3 +42,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[commit]
+	template = /Users/deepu.mukundan/.stCommitMsg
