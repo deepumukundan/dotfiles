@@ -44,3 +44,5 @@
 	required = true
 [commit]
 	template = /Users/deepu.mukundan/.stCommitMsg
+[includeIf "gitdir:~/Documents/Workspace/Work/"]
+	path = ~/Documents/Workspace/Work/.gitconfig

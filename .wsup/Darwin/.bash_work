@@ -5,12 +5,13 @@
 function j() { ssh releaseengineering@172.17.210."$@" }
 function p() { ssh pi@172.17.210."$@" }
 
-alias b='cd ~/Documents/Workspace/Workday/badger-ios'
-alias wt1='cd ~/Documents/Workspace/Workday/badger-ios01'
-alias wt2='cd ~/Documents/Workspace/Workday/badger-ios02'
-alias and='cd ~/Documents/Workspace/Workday/badger-android'
+alias b='cd ~/Documents/Workspace/Work/badger-ios'
+alias wt1='cd ~/Documents/Workspace/Work/badger-ios01'
+alias wt2='cd ~/Documents/Workspace/Work/badger-ios02'
+alias and='cd ~/Documents/Workspace/Work/badger-android'
 alias goo='cd ~/go/src'
-alias sys='cd ~/Documents/Workspace/Workday/system-tests'
+alias sys='cd ~/Documents/Workspace/Work/system-tests'
+alias jsl='cd ~/Documents/Workspace/Work/jenkins-shared-library'
 
 export OKTA2AWS_DUO_MFA_OPTION='Duo Push'
 export AWS_SDK_LOAD_CONFIG=0
