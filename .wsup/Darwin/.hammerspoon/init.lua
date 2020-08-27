@@ -1,3 +1,5 @@
+hs.application.enableSpotlightForNameSearches(true)
+
 local coreConfigs = require "coreConfigs"
 local cursorConfigs = require "cursorConfigs"
 local hyperConfigs = require "hyperConfigs"
@@ -21,14 +23,26 @@ end)
 
 hyper:bind({}, '1', nil,
 function()
-    hs.layout.apply(internal_display)
-    hs.notify.show("Display Switch", "", "Internal Display Configuration", "")
+    hs.layout.apply(single_display)
+    hs.notify.show("Display Switch", "", "Single Display Configuration", "")
 end)
 
 hyper:bind({}, '2', nil,
 function()
+    hs.layout.apply(double_display)
+    hs.notify.show("Display Switch", "", "Double Display Configuration", "")
+end)
+
+hyper:bind({}, '3', nil,
+function()
     hs.layout.apply(triple_display)
     hs.notify.show("Display Switch", "", "Triple Display Configuration", "")
+end)
+
+hyper:bind({}, '4', nil,
+function()
+    hs.layout.apply(single_display_split)
+    hs.notify.show("Display Switch", "", "Single Display Split Configuration", "")
 end)
 
 -- Hotkeys

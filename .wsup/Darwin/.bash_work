@@ -15,6 +15,7 @@ alias jsl='cd ~/Documents/Workspace/Work/jenkins-shared-library'
 
 export OKTA2AWS_DUO_MFA_OPTION='Duo Push'
 export AWS_SDK_LOAD_CONFIG=0
+export SSOCLI_AWS_REGION=us-west-2
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH:~/go/bin
 
