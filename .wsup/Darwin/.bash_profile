@@ -45,6 +45,7 @@ function loc() { find . -type f -iname "*.[hm]" -exec wc -l {} \; | awk '{total 
 function locs() { find . -type f -iname "*.swift" -exec wc -l {} \; | awk '{total += $1} END{print total}' }
 function r()  { grep "$1" ${@:2} -R . }
 function rule() { printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}}
+function mp4() { ffmpeg -i $1.mov -vcodec h264 -acodec mp2 $1.mp4 }
 
 source ~/bin/shorten
 source ~/bin/fixAppStore
